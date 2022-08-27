@@ -19,7 +19,24 @@ class Body extends StatelessWidget {
         BlocBuilder<DiceBloc, DiceRollState>(builder: (context, state) {
           return SizedBox(
               height: MediaQuery.of(context).size.height * 0.4,
-              child: Image.asset("assets/dice_images/${state.getNumber}.png"));
+              child: Row(
+                children: [
+                  Flexible(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                            "assets/dice_images/${state.getFirstNumber}.png"),
+                      )),
+                  Flexible(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                            "assets/dice_images/${state.getSecondNumber}.png"),
+                      )),
+                ],
+              ));
         }),
         const RollButton(),
       ]),

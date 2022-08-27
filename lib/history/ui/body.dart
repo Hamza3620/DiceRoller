@@ -54,7 +54,7 @@ class Body extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 8.0),
                                 child: Text(
-                                  "${state.getHistory[index].num}",
+                                  "${state.getHistory[index].num1} + ${state.getHistory[index].num2} = ${state.getHistory[index].num1 + state.getHistory[index].num2}",
                                   style: const TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold),
@@ -85,8 +85,17 @@ class Body extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              trailing: Image.asset(
-                                'assets/dice_images/${state.getHistory[index].num}.png',
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Image.asset(
+                                    'assets/dice_images/${state.getHistory[index].num1}.png',
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Image.asset(
+                                    'assets/dice_images/${state.getHistory[index].num2}.png',
+                                  ),
+                                ],
                               ),
                             ),
                           ),
