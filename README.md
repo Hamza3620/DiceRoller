@@ -31,5 +31,9 @@ The developed application contains two screen to which the route is managed usin
 ## Removing an item from history list
 ![Alt text](assets/documentation/ss5.png)
 
-## Sample Video[video_dice.webm](https://user-images.githubusercontent.com/34295004/187029847-8763d45a-d1d2-4597-a162-e3ec91885a97.webm)
+## Sample Video
+
+This video is demonstration of features available in this Dice Roller app. 
+
+[video_dice.webm](https://user-images.githubusercontent.com/34295004/187029847-8763d45a-d1d2-4597-a162-e3ec91885a97.webm)
 
