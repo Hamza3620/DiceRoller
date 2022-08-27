@@ -8,8 +8,10 @@ import 'dice_events.dart';
 import 'dice_states.dart';
 
 class DiceBloc extends Bloc<DiceRollEvent, DiceRollState> {
-  DiceBloc() : super(const DiceRollFinish(0, 0)) {
-    on<DiceRollPressed>((event, emit) {
+  DiceBloc() : super(DiceRollIdle()) {
+    on<DiceRollPressed>((event, emit) async {
+      emit(DiceRollStart());
+      await Future.delayed(const Duration(seconds: 2));
       var rng = Random();
       int num1 = rng.nextInt(6) + 1;
       int num2 = rng.nextInt(6) + 1;
