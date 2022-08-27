@@ -11,7 +11,7 @@ class DiceBloc extends Bloc<DiceRollEvent, DiceRollState> {
   DiceBloc() : super(DiceRollIdle()) {
     on<DiceRollPressed>((event, emit) async {
       emit(DiceRollStart());
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       var rng = Random();
       int num1 = rng.nextInt(6) + 1;
       int num2 = rng.nextInt(6) + 1;

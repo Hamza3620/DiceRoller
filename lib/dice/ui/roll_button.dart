@@ -11,9 +11,11 @@ class RollButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: Colors.black,
-        ),
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                    side: const BorderSide(color: Colors.black)))),
         onPressed: () {
           BlocProvider.of<DiceBloc>(context).add(DiceRollPressed());
         },

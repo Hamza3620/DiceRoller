@@ -19,28 +19,7 @@ class Body extends StatelessWidget {
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         BlocBuilder<DiceBloc, DiceRollState>(builder: (context, state) {
-          if (state is DiceRollIdle) {
-            return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.asset("assets/dice_images/0.png"),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.asset("assets/dice_images/0.png"),
-                      ),
-                    ),
-                  ],
-                ));
-          } else if (state is DiceRollStart) {
+          if (state is DiceRollStart || state is DiceRollIdle) {
             return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.4,
                 child: Row(
@@ -50,7 +29,7 @@ class Body extends StatelessWidget {
                       child: ShakeWidget(
                         duration: const Duration(seconds: 2),
                         shakeConstant: ShakeHardConstant1(),
-                        autoPlay: true,
+                        autoPlay: state is DiceRollIdle ? false : true,
                         enableWebMouseHover: true,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -63,7 +42,7 @@ class Body extends StatelessWidget {
                       child: ShakeWidget(
                         duration: const Duration(seconds: 2),
                         shakeConstant: ShakeHardConstant2(),
-                        autoPlay: true,
+                        autoPlay: state is DiceRollIdle ? false : true,
                         enableWebMouseHover: true,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

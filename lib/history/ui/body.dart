@@ -1,7 +1,7 @@
 import 'package:dice_roller/history/bloc/history_bloc.dart';
 import 'package:dice_roller/history/bloc/history_events.dart';
 import 'package:dice_roller/history/bloc/history_states.dart';
-import 'package:dice_roller/history/ui/clear_history_button.dart';
+import 'package:dice_roller/history/ui/reset_history_button.dart';
 import 'package:dice_roller/history/ui/no_history_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +23,7 @@ class Body extends StatelessWidget {
             return ListView(
               children: [
                 ListView.builder(
+                    reverse: true,
                     shrinkWrap: true,
                     primary: false,
                     itemCount: state.getHistory.length,
@@ -69,8 +70,10 @@ class Body extends StatelessWidget {
                                         Icons.calendar_month,
                                         color: Colors.purple,
                                       ),
-                                      Text(state.getHistory[index].timeStamp
-                                          .split(',')[0]),
+                                      Text(
+                                        ' ${state.getHistory[index].timeStamp.split(',')[0]}',
+                                        style: TextStyle(fontSize: 16),
+                                      ),
                                     ],
                                   ),
                                   Row(
@@ -79,8 +82,9 @@ class Body extends StatelessWidget {
                                         Icons.alarm,
                                         color: Colors.black,
                                       ),
-                                      Text(state.getHistory[index].timeStamp
-                                          .split(', ')[1]),
+                                      Text(
+                                          ' ${state.getHistory[index].timeStamp.split(', ')[1]}',
+                                          style: TextStyle(fontSize: 16)),
                                     ],
                                   ),
                                 ],
@@ -102,7 +106,7 @@ class Body extends StatelessWidget {
                         ),
                       );
                     }),
-                const ClearHistoryButton(),
+                const ResetHistoryButton(),
               ],
             );
           } else {
